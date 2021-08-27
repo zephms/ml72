@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>nocode v0.1a</title>
+    <link rel="stylesheet" type="text/css" href="boshen.css">
+    <style>
+        .nbtn > input{
+            width: 20vw;
+        }
+        .tempbox {
+            width: fit-content;
+            margin: 0 auto;
+        }
+        .footer {
+            width: fit-content;
+            margin: 0 auto;
+        }
+        .footer > a {
+            color: #0969DA;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="toptitle">
+        <div class="toptitle-lefttext">
+            低代码爬虫生成平台
+        </div>
+    </div>
+    <div class="toptitle-hold"></div>
+
+    <div class="title">数据导入</div>
+    <div class="bsform">
+        <div class="bsform-inlineDescription">
+            读取数据格式
+        </div>
+        <select style="margin-left: 50px">
+            <option value="volvo">listJson</option>
+            <option value="saab">csv</option>
+            <option value="mercedes">xlsx</option>
+        </select>
+    </div>
+
+    <div class="title">工作函数编写</div>
+    <div class="bsform">
+        <div class="bsform-inlineDescription">访问链接:</div>
+        <div class="bsform-inputLine"><input type="text"></div>
+
+        <br><div class="bsform-inlineDescription">header</div><br>
+        <div class="bsform-inputLine" style="width: 40%"><input type="text"></div>:<div class="bsform-inputLine" style="width: 40%"><input type="text"></div>
+        <br><div class="bsform-button bsform-button_green"><input type="button" value="添加一组"></div>
+        <div class="bsform-button bsform-button_white"><input type="button" value="删除空白行"></div>
+
+        <br><br><br><div class="bsform-inlineDescription">param</div><br>
+        <div class="bsform-inputLine" style="width: 40%"><input type="text"></div>:<div class="bsform-inputLine" style="width: 40%"><input type="text"></div>
+        <br><div class="bsform-button bsform-button_green"><input type="button" value="添加一组"></div>
+        <div class="bsform-button bsform-button_white"><input type="button" value="删除空白行"></div>
+
+    </div>
+
+    <div class="title">多线程</div>
+    <div class="bsform">
+        <div class="bsform-inlineDescription">
+            线程数
+        </div>
+        <div class="bsform-inputLine"><input type="text"></div>
+
+        <br><div class="bsform-inlineDescription">
+            任务包的容量
+        </div>
+        <div class="bsform-inputLine"><input type="text"></div>
+    </div>
+
+    <div class="title">数据导出</div>
+    <div class="bsform">
+        <div class="bsform-inlineDescription">
+            输出文件名
+        </div>
+        <div class="bsform-inputLine"><input type="text"></div>
+    </div>
+<br>
+
+    <div class="tempbox">
+        <div class="bsform-button bsform-button_green nbtn"><input type="button" value="生成"></div>
+        <div class="bsform-button bsform-button_white nbtn"><input type="button" value="下载工程文件"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="footer">
+        <a href="https://www.acbs.top" target="_blank">www.acbs.top</a> | <a href="https://www.github.com/zephms" target="_blank">NoCode</a>
+    </div>
+    <div style="height: 20px"></div>
+</body>
+</html>
