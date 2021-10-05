@@ -11,7 +11,7 @@ func writeProjectXml(path string){
 	docpath := pm.Join(path, "project.xml")
 	f, _ := os.Create(docpath)
 	defer f.Close()
-	_, _ = f.Write([]byte("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<project>\n    <info>\n        <projName>st</projName>\n        <description>这是一段描述</description>\n    </info>\n    <server>\n        <version>0.1.1</version>\n        <port>8083</port>\n    </server>\n    <runs>\n        <run>\n            <index>debug</index>\n            <debug>true</debug>\n            <part>\n                <showcmd>true</showcmd>\n                <cd/>\n                <script>python testA.py</script>\n            </part>\n        </run>\n        <run>\n            <index>release</index>\n            <debug>false</debug>\n            <part>\n                <showcmd>false</showcmd>\n                <cd/>\n                <script>python testA.py</script>\n            </part>\n        </run>\n    </runs>\n    <reserve>\n        <part>\n            <name>py</name>\n            <cd ></cd>\n            <script>python testA.py &amp;&amp; ping www.baidu.com && pause</script>\n        </part>\n    </reserve>\n</project>\n"))
+	_, _ = f.Write([]byte("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<project>\n    <info>\n        <projName>st</projName>\n        <description>这是一段描述</description>\n    </info>\n    <server>\n        <version>0.1.1</version>\n        <port>8083</port>\n    </server>\n    <runs>\n        <run>\n            <index>debug</index>\n            <part label=\"pyprog\">\n                python testA.py\n            </part>\n            <part label=\"mulline\">\n                python testB.py\n                javac a.java\n                java a\n            </part>\n            <part name=\"py\"/>\n            <part>\n                go run *.go\n            </part>\n        </run>\n        <run>\n            <index>release</index>\n            <part>\n                javac a.java\n                java a\n            </part>\n        </run>\n    </runs>\n    <reserve>\n        <part name=\"py\" label=\"pypart\">\n            <script>python testA.py &amp;&amp; pi&amp;&amp; ng \\\\\\www.baidu.com  pause</script>\n        </part>\n        <part name=\"py\" label=\"xzvc\">\n            <script>python testA.py &amp;&amp; pi&amp;&amp; ng \\\\\\www.baidu.com  pause</script>\n        </part>\n        <part name=\"py\" label=\"fasdsfd\">\n            <script>python testA.py &amp;&amp; pi&amp;&amp; ng \\\\\\www.baidu.com  pause</script>\n        </part>\n    </reserve>\n</project>"))
 }
 
 func Initproj(path string)  {
@@ -29,8 +29,8 @@ func Initproj(path string)  {
 			return
 		}
 	} else {
-		fmt.Println("hhh")
+		fmt.Println("welcome to a new project !")
+		writeProjectXml(path)
+		fmt.Println("ok")
 	}
 }
-
-

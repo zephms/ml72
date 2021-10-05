@@ -1,30 +1,16 @@
 package main
 
 import (
-	"fmt"
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/context"
-	"net"
 	"strconv"
-	"time"
 )
 
 var defaultCap = 3
 var channelMap map[string]chan string
 var signalMap map[string]string
 
-// 该函数缺乏测试，可能面临着端口已占用但是没提示的情况，请注意
-func getPort(port int) int {
-	fmt.Println("当前测试的是端口", port)
-	time.Sleep(1*time.Second)
-	tl,err := net.Listen("tcp", "127.0.0.1:"+strconv.Itoa(port))
-	if err == nil {
-		tl.Close()
-		return port
-	} else {
-		return getPort(port+1)
-	}
-}
+
 
 func push(ch string, data string)  {
 	curChan, ok := channelMap[ch]
@@ -49,7 +35,7 @@ func get(ch string) string {
 	return res
 }
 
-func main22() {
+func RunServer(port int) {
 
 	app := iris.New()
 	channelMap = make(map[string]chan string)
@@ -90,6 +76,6 @@ func main22() {
 	//	fmt.Println("程序注册失败")
 	//	return
 	//}
-	port := 8083
 	app.Run(iris.Addr(":"+strconv.Itoa(port)))
 }
+
