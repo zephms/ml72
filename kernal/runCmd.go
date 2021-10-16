@@ -77,7 +77,7 @@ func RunCMD(cmdstr string, prefix string, wg *sync.WaitGroup)  {
 //	wg.Wait()
 //}
 
-func TestTempRun(){
+func TestTempRun(){ // 这个是一个测试的东西，可以给它删掉
 	fmt.Println("testT")
 	// Disable output buffering, enable streaming
 	cmdOptions := cmd.Options{

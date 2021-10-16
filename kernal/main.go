@@ -1,9 +1,8 @@
 package main
 
-import "os"
-
 func main()  {
-	AnaParagram(os.Args)
+	runTServer(8083)
+	//AnaParagram(os.Args)
 	//RunServer(8083)
 	//fmt.Println(IsExistDir("D:/aaa"))
 	//PartLs()
