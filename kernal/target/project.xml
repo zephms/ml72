@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <info>
+        <projName>st</projName>
+        <description>这是一段描述</description>
+    </info>
+    <server>
+        <version>0.1.1</version>
+        <port>8083</port>
+    </server>
+    <runs>
+        <run>
+            <index>debug</index>
+            <part label="pyprog">
+                python testA.py
+            </part>
+            <part label="mulline">
+                python testB.py
+                javac a.java
+                java a
+            </part>
+            <part name="py"/>
+            <part>
+                go run *.go
+            </part>
+        </run>
+        <run>
+            <index>release</index>
+            <part>
+                javac a.java
+                java a
+            </part>
+        </run>
+    </runs>
+    <reserve>
+        <part name="py" label="pypart">
+            <script>python testA.py &amp;&amp; pi&amp;&amp; ng \\\www.baidu.com  pause</script>
+        </part>
+        <part name="py" label="xzvc">
+            <script>python testA.py &amp;&amp; pi&amp;&amp; ng \\\www.baidu.com  pause</script>
+        </part>
+        <part name="py" label="fasdsfd">
+            <script>python testA.py &amp;&amp; pi&amp;&amp; ng \\\www.baidu.com  pause</script>
+        </part>
+    </reserve>
+</project>

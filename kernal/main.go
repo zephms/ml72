@@ -1,12 +1,19 @@
 package main
 
-func main()  {
-	runTServer(8083)
-	//AnaParagram(os.Args)
-	//RunServer(8083)
-	//fmt.Println(IsExistDir("D:/aaa"))
-	//PartLs()
-	//RunPart("py")
-	//RunRun("debug")
-	//TestTempRun()
+import "dev/intro"
+
+func main() {
+	//fmt.Println("welcome")
+	//tool.ShowLogo()
+
+
+	//intro.AnaParagram(os.Args)
+	intro.LongServerTestMain()
+
+
+	//intro.RunServerN(8080)
+	//intro.Maindevtest()
 }
+
+
+
