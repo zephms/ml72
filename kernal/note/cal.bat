@@ -1,0 +1,1 @@
+cloc --exclude-dir=".idea,target,go.mod,go.sum" .

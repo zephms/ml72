@@ -1,0 +1,9 @@
+
+/ml #内置节点集
+    /ml/exec #执行任意指令
+    /ml/webcmd #管理页面
+    /ml/manage
+
+/root #标准节点树
+
+/client

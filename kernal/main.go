@@ -1,6 +1,9 @@
 package main
 
-import "dev/intro"
+import (
+	"dev/intro"
+	"dev/server"
+)
 
 func main() {
 	//fmt.Println("welcome")
@@ -8,10 +11,12 @@ func main() {
 
 
 	//intro.AnaParagram(os.Args)
-	intro.LongServerTestMain()
+	//intro.LongServerTestMain()
+
+	ser := server.NewMLserver()
+	intro.RunServerN(ser.PortIris, ser)
 
 
-	//intro.RunServerN(8080)
 	//intro.Maindevtest()
 }
 

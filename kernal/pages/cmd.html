@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Command Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #0C0C0C;
+            /*background-color:rebeccapurple;*/
+        }
+
+        #path{
+            height: 100%;
+            padding: 5px 10px;
+            color: #CCCCCC;
+            display: inline-block;
+        }
+
+        #path::after{
+            content: ">";
+            display: inline-block;
+        }
+
+        #path {
+            height: 100%;
+            padding: 5px 0 5px 10px;
+            color: #CCCCCC;
+            display: inline-block;
+
+        }
+        #cmd {
+            color: #CCCCCC;
+            display: inline-block;
+            background-color: transparent;
+            border: transparent;
+            outline: 0;
+            padding-left: 0;
+            width: 80%;
+        }
+        #output {
+            color: #CCCCCC;
+            margin: 20px 10px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="output"></div>
+<div id="path">/ml/exec</div>
+<input id="cmd" type="text" onkeydown="mysubmit(event)">
+
+</body>
+<script>
+    document.onclick = function (event) {
+        // alert("aaa")
+        var e = event || window.event;
+        var keyCode = e.keyCode || e.which;//e.which 兼容FF
+        var target = e.srcElement || e.target;
+        if (keyCode === 13) {
+            var tabindex = target.tabIndex + 1;
+            if (tabindex === 6) tabindex = 1;
+            document.getElementById('inputbox').focus();
+        }
+    }
+
+    function addString(s) {
+        // document.getElementById("terminal").append(s)
+        var t = document.getElementById("output")
+        t.innerText = t.innerText + s
+    }
+
+    function mysubmit(event) {
+        var evt = window.event || e;
+
+        if (evt.keyCode === 13){
+            var command = document.getElementById("cmd").value.trim()
+
+            console.log(command)
+            var ajax = new XMLHttpRequest();
+            ajax.open('post', "/ml/exec");
+            ajax.send(command);
+            ajax.onreadystatechange = function () {
+                if (ajax.readyState === 4 && ajax.status === 200) {
+                    var rq = ajax.responseText;
+                    addString(rq+"\n")
+                    console.log(rq)
+                    document.getElementById("cmd").innerText = ""
+                }
+            }
+        }
+
+
+
+    }
+        addString("A LINK communication framework [version: 0.1.3]\n")
+        addString("Web Command Tool :-) \n")
+
+</script>
+</html>

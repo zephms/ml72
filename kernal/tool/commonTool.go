@@ -3,7 +3,9 @@ package tool
 import (
 	"github.com/axgle/mahonia"
 	"regexp"
+	"strconv"
 	"strings"
+	"time"
 )
 
 func Decode2str(b []byte, dec mahonia.Decoder)string{
@@ -22,4 +24,26 @@ func ClearXmlinRun(s string) []string {
 		ss[i] = reg.ReplaceAllString(ss[i], "")
 	}
 	return ss
+}
+
+
+var ML_timeStartMs int64 = 1639238640520
+// 获得int时间戳
+func GetDiffTimeStampStr() string {
+	i := time.Now().UnixMicro() - ML_timeStartMs
+	return strconv.Itoa(int(i))
+}
+
+func BytesEquals(a,b []byte) bool {
+	ret := true
+	if len(a)!= len(b){
+		ret = false
+		return ret
+	}
+	for i:=0;i<len(a);i++{
+		if a[i] != b[i]{
+			ret = false
+		}
+	}
+	return ret
 }

@@ -58,7 +58,8 @@ func AnaParagram(ags []string)  {
 		if len(ags)==2{
 			// runserver random port
 			port := tool.GetPort(8080)
-			RunServerN(port)
+			fmt.Println("暂时不运行", port)
+			//RunServerN(port)
 		} else if len(ags)==3 {
 			// run server ags[3
 			if ags[2] == "project" {
@@ -69,7 +70,8 @@ func AnaParagram(ags []string)  {
 					fmt.Println("the port would be numerical")
 					return
 				} else {
-					RunServerN(port)
+					fmt.Println("暂时不运行", port)
+					//RunServerN(port)
 				}
 			}
 		}
